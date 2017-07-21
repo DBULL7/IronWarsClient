@@ -5,6 +5,7 @@ body {
 }
 
 #terminal {
+  text-align: left;
   height: 300px;
   width: 300px;
   background-color: #000;
