@@ -7,24 +7,19 @@ class App extends Component {
     super()
     this.state = {}
   }
-  test(e) {
+
+  getCode(e) {
     if(!e) return 
-    // console.log(e.target.innerText)
     let text = e.target.innerText
     this.setState({text: text})
   }
 
   make() {
     if (!this.state.text) return 
-    
-    this.setState({script: [<script type="text/javascript">{this.state.text}</script>]})
-
-    // return (<script>{this.state.text}</script>)
-  }
-
-  check() {
-    if (!this.state.script) return
-    return this.state.script[0]
+    const script = document.createElement("script");
+    script.append(this.state.text)
+    let placeToAppend = document.getElementById('code')
+    placeToAppend.append( script );
   }
 
   render() {
@@ -34,10 +29,9 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
         </div>
-        <div id="terminal" onKeyUp={(e) => {this.test(e)}} contentEditable={true}></div>
+        <div id="terminal" onKeyUp={(e) => {this.getCode(e)}} contentEditable={true}></div>
         <button onClick={() => this.make()}>Create</button>
-        <pre id="pre">{this.check()}</pre>
-        
+        <pre id="code"></pre>                
       </div>
     );
   }
