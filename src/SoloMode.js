@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import './styles/solomode.css'
 class SoloMode extends Component {
   constructor() {
     super()
@@ -22,9 +22,17 @@ class SoloMode extends Component {
 
   render() {
     return (
-      <div className="App">
-         <div id="terminal" onKeyUp={(e) => {this.getCode(e)}} contentEditable={true}></div>
-        <button onClick={() => this.make()}>Create</button> 
+      <div className="app">
+        <div id="left-side">
+          <div id="terminal" onKeyUp={(e) => {this.getCode(e)}} contentEditable={true}></div>
+          <div id="run-button-div">
+            <button id="run-button" onClick={() => this.make()}>Run</button> 
+          </div>
+         </div>
+         <div id="right-side">          
+            <div id="repl"></div>
+            <div id="scoreboard"></div>
+         </div>
         <pre id="code"></pre>                
       </div>
     );

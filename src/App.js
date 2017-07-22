@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
-import { Route, Link, Switch } from 'react-router-dom'
+import './styles/App.css';
+import { Route, Switch } from 'react-router-dom'
 import SoloMode from './SoloMode'
 
 class App extends Component {
